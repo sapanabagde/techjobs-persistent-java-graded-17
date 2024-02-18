@@ -4,15 +4,25 @@ package org.launchcode.techjobs.persistent.models;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 import java.util.Objects;
 
+//2.1 Creating tables for subclasses that inheritate from AbstractEntity
+//Mapped AbstractEntity with Superclass annotation, since using ID and name in all the subclasses.
+
+@MappedSuperclass
 public abstract class AbstractEntity {
 
+
+   @Id
+   @GeneratedValue
     private int id;
 
+   @NotBlank(message = "Name can not be blank.")
+   @Size(max = 50, message = "Name must not exceed 50 characters.")
     private String name;
 
     public int getId() {

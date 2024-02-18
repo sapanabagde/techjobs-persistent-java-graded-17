@@ -67,7 +67,6 @@ public class JobData {
      */
     public static ArrayList<Job> findByValue(String value, Iterable<Job> allJobs) {
 
-
         ArrayList<Job> results = new ArrayList<>();
 
         for (Job job : allJobs) {
